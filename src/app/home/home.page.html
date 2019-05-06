@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label> Valor </ion-label>
+    <ion-input [(ngModel)]="entrada" type="number"> </ion-input>
+
+  </ion-item>
+  <ion-item>
+    <ion-label> Descrição </ion-label>
+    <ion-input [(ngModel)]="desc" type="text"> </ion-input>
+
+  </ion-item>
+  <ion-item> 
+    <ion-label>Data</ion-label>
+    <ion-input type="date" [(ngModel)]="date" placeholder="Selecione a Data"></ion-input>
+  </ion-item>
+  
+  <ion-item> 
+    <ion-label>Tipo</ion-label>
+  <ion-select [(ngModel)]="tipo">
+    <ion-select-option value="gasto">Despesa</ion-select-option>
+    <ion-select-option value="receita">Receita</ion-select-option>
+  </ion-select>
+  </ion-item>
+  <div *ngIf="tipo=='gasto'">
+    <ion-item>
+      <ion-label>Categoria</ion-label>
+      <ion-select [(ngModel)]="categoria">
+      <ion-select-option value="Alimentação">Alimentação</ion-select-option>
+      <ion-select-option value="Transporte">Transporte</ion-select-option>
+      <ion-select-option value="Lazer">Lazer</ion-select-option>
+      <ion-select-option value="Outros">Outros</ion-select-option>
+    </ion-select>
+    </ion-item>
+  </div>
+  
+
+  <ion-button (click)="add() " >Adicionar</ion-button>
+
+
+
+
+</ion-content>
